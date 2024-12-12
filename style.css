@@ -22,7 +22,6 @@ body {
   align-items: center;
 }
 
-
 /* canvas + restart BTN */
 
 canvas {
@@ -91,11 +90,9 @@ a:visited {
     font-size: 1.5rem;
     padding: 15px;
   }
-
 }
 
 @media (max-width: 768px) {
-
   canvas {
     box-shadow: none;
     max-width: 70%;
@@ -122,4 +119,3 @@ a:visited {
     font-size: 1rem;
   }
 }
-

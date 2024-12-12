@@ -82,14 +82,13 @@ export default class Player {
     event.preventDefault();
     const touch = event.touches[0];
     const { clientX, clientY } = touch;
+    const middleX = window.innerWidth / 2;
 
-    if (clientY > this.canvas.height * 0.8) {
-      if (clientX < this.canvas.width / 2) {
-        this.leftPressed = true;
-      } else {
-        this.rightPressed = true;
-      }
+    if (clientX < middleX) {
+      this.leftPressed = true;
+      this.shootPressed = true;
     } else {
+      this.rightPressed = true;
       this.shootPressed = true;
     }
   };
@@ -106,7 +105,7 @@ export default class Player {
     const touch = event.touches[0];
     const { clientX } = touch;
 
-    if (clientX < this.canvas.width / 2) {
+    if (clientX < window.innerWidth / 2) {
       this.leftPressed = true;
       this.rightPressed = false;
     } else {

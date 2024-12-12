@@ -5,11 +5,8 @@ import BulletController from "./BulletController.js";
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
-let canvasDefaultWidth = 1000;
-let canvasDefaultHeight = 900;
-
-canvas.width = canvasDefaultWidth;
-canvas.height = canvasDefaultHeight;
+canvas.width = 700;
+canvas.height = 800;
 
 const restartBtn = document.getElementById("restartBtn");
 restartBtn.addEventListener("click", () => {
