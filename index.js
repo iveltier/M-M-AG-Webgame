@@ -5,8 +5,8 @@ import BulletController from "./BulletController.js";
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
-let canvasDefaultWidth = 800;
-let canvasDefaultHeight = 600;
+let canvasDefaultWidth = 1000;
+let canvasDefaultHeight = 900;
 
 canvas.width = canvasDefaultWidth;
 canvas.height = canvasDefaultHeight;
@@ -101,7 +101,6 @@ function checkGameOver() {
 setInterval(game, 1000 / 60);
 
 function restartGame() {
-  isLandscape();
   didWin = false;
   isGameOver = false;
   enemyController.enemyReachedBottom = false;
@@ -124,65 +123,6 @@ function changeToRandomBackground() {
   background.src = `images/assets/background${randomBackgroundNum}.jpg`;
 }
 
-function enableFullscreen() {
-  if (window.innerHeight > window.innerWidth) {
-    alert("Please rotate your device");
-    return;
-  }
-  if (window.innerHeight < canvas.height) {
-    alert("Fullscreen not supported");
-    return;
-  }
-
-  if (isGameOver) {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    document.getElementById("sign").style.color = "white";
-    enemyController.enemyMap = [
-      [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 2, 2, 2, 3, 3, 3, 3, 3, 2, 2, 2, 1],
-      [1, 2, 2, 2, 3, 3, 3, 3, 3, 2, 2, 2, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-    ];
-    enemyController.defaultXVelocity = 3;
-    enemyController.defaultYVelocity = 3;
-    player.velocity = 4;
-
-    window.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        canvas.width = canvasDefaultWidth;
-        canvas.height = canvasDefaultHeight;
-        document.getElementById("sign").style.color = "black";
-        enemyController.defaultXVelocity = 2;
-        enemyController.defaultYVelocity = 2;
-        isGameOver = true;
-        enemyController.enemyMap = [
-          [0, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-          [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-          [2, 2, 2, 3, 3, 3, 3, 2, 2, 2],
-          [2, 2, 2, 3, 3, 3, 3, 2, 2, 2],
-          [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-          [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-        ];
-      }
-    });
-  } else {
-    alert(
-      "Das Spiel muss beendet sein, bevor der Fullscreen-Modus aktiviert werden kann."
-    );
-  }
-}
-
-// optimisation for mobile devices (ask user to rotate device)
-
-function isLandscape() {
-  if (window.innerWidth < window.innerHeight) {
-    alert("Please rotate your device for optimal game expierience");
-  }
-}
-
 // stop game with esc
 
 window.addEventListener("keydown", (event) => {
@@ -191,7 +131,3 @@ window.addEventListener("keydown", (event) => {
     isGameOver = true;
   }
 });
-
-window.isLandscape = isLandscape;
-
-window.enableFullscreen = enableFullscreen;

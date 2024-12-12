@@ -91,7 +91,6 @@ export default class Player {
       this.rightPressed = true;
     }
 
-    // Schießen durch Berührung am oberen Bereich des Canvas
     if (event.touches[0].clientY < this.y) {
       this.shootPressed = true;
     }
@@ -106,7 +105,6 @@ export default class Player {
   touchmove = (event) => {
     const touchX = event.touches[0].clientX;
 
-    // Spieler bewegt sich nach links oder rechts basierend auf der Position der Berührung
     if (touchX < this.canvas.width / 2) {
       this.leftPressed = true;
       this.rightPressed = false;
