@@ -16,18 +16,14 @@ export default class Player {
     this.image = new Image();
     this.image.src = "images/assets/player.png";
 
-    // Tastatur-Events
+    // Keyboard events
     document.addEventListener("keydown", this.keydown);
     document.addEventListener("keyup", this.keyup);
 
-    // Touch-Events
-    this.canvas.addEventListener("touchstart", this.touchstart, {
-      passive: true,
-    });
-    this.canvas.addEventListener("touchend", this.touchend, { passive: true });
-    this.canvas.addEventListener("touchmove", this.touchmove, {
-      passive: true,
-    });
+    // Touch events
+    this.canvas.addEventListener("touchstart", this.touchstart);
+    this.canvas.addEventListener("touchend", this.touchend);
+    this.canvas.addEventListener("touchmove", this.touchmove);
   }
 
   draw(ctx) {
@@ -56,7 +52,7 @@ export default class Player {
     }
   }
 
-  // Tastatur-Events
+  // Keyboard events
   keydown = (event) => {
     if (event.code == "ArrowRight" || event.code == "KeyD") {
       this.rightPressed = true;
@@ -81,31 +77,36 @@ export default class Player {
     }
   };
 
-  // Touch-Events
+  // Touch events
   touchstart = (event) => {
-    const touchX = event.touches[0].clientX;
+    event.preventDefault();
+    const touch = event.touches[0];
+    const { clientX, clientY } = touch;
 
-    if (touchX < this.canvas.width / 2) {
-      this.leftPressed = true;
+    if (clientY > this.canvas.height * 0.8) {
+      if (clientX < this.canvas.width / 2) {
+        this.leftPressed = true;
+      } else {
+        this.rightPressed = true;
+      }
     } else {
-      this.rightPressed = true;
-    }
-
-    if (event.touches[0].clientY < this.y) {
       this.shootPressed = true;
     }
   };
 
-  touchend = () => {
-    this.leftPressed = false;
+  touchend = (event) => {
+    event.preventDefault();
     this.rightPressed = false;
+    this.leftPressed = false;
     this.shootPressed = false;
   };
 
   touchmove = (event) => {
-    const touchX = event.touches[0].clientX;
+    event.preventDefault();
+    const touch = event.touches[0];
+    const { clientX } = touch;
 
-    if (touchX < this.canvas.width / 2) {
+    if (clientX < this.canvas.width / 2) {
       this.leftPressed = true;
       this.rightPressed = false;
     } else {
