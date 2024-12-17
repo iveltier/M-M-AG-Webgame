@@ -128,3 +128,10 @@ window.addEventListener("keydown", (event) => {
     isGameOver = true;
   }
 });
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    restartGame();
+  }
+});
+d
