@@ -89,7 +89,7 @@ a:visited {
   height: auto;
   width: 100%;
   aspect-ratio: 2.95 / 1;
-  max-width: 200px;
+  max-width: 100px;
   object-fit: cover;
 }
 
@@ -121,10 +121,6 @@ a:visited {
   #sign {
     font-size: 0.7em;
   }
-
-  #logo {
-    max-width: 150px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -135,8 +131,5 @@ a:visited {
   }
   #restartBtn {
     font-size: 1rem;
-  }
-  #logo {
-    max-width: 120px;
   }
 }
