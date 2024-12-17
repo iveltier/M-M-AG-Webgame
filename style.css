@@ -79,6 +79,20 @@ a:visited {
   color: inherit;
 }
 
+/*logo*/
+
+#logo {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 2px;
+  left: 5px;
+  height: auto;
+  width: 100%;
+  aspect-ratio: 2.95 / 1;
+  max-width: 200px;
+  object-fit: cover;
+}
+
 /* Responsive Design  */
 @media (max-width: 1200px) {
   canvas {
@@ -107,6 +121,10 @@ a:visited {
   #sign {
     font-size: 0.7em;
   }
+
+  #logo {
+    max-width: 150px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -117,5 +135,8 @@ a:visited {
   }
   #restartBtn {
     font-size: 1rem;
+  }
+  #logo {
+    max-width: 120px;
   }
 }
