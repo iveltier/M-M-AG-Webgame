@@ -134,4 +134,3 @@ window.addEventListener("keydown", (event) => {
     restartGame();
   }
 });
-d

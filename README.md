@@ -2,4 +2,4 @@
 
 - größen richtig einstellen
 
-- enter zum restarten
+- wie fragen  wegen größe umstellen 
