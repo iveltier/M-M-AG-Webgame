@@ -10,7 +10,7 @@ Hover over the settings-icon to get some extra features.
 
 In infinitemode eliminated enemys are getting count and the game gets progressively harder.
 
-You can play it here: [M&MAG-Webgame](iveltier.github.io/mmagwebgame/)
+You can play it here: [M&MAG-Webgame](https://iveltier.github.io/mmagwebgame/)
 
 ## Shortcuts :
 
