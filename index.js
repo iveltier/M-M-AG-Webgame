@@ -6,7 +6,7 @@ const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
 canvas.width = 700;
-canvas.height = 800;
+canvas.height = 1000;
 
 const restartBtn = document.getElementById("restartBtn");
 restartBtn.addEventListener("click", () => {
@@ -95,9 +95,7 @@ function checkGameOver() {
     isGameOver = true;
   }
 }
-setInterval(game, 1000 / 60);
-
-function restartGame() {
+setInterval(game, 1000 / 60); function restartGame() {
   didWin = false;
   isGameOver = false;
   enemyController.enemyReachedBottom = false;
