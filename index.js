@@ -28,19 +28,32 @@ const enemyController = new EnemyController(
 );
 const player = new Player(canvas, 3, playerBulletController);
 
+const startPopup = document.getElementById("startPopup");
+const startBtn = document.getElementById("startBtn");
+
 let isGameOver = false;
 let didWin = false;
+let isGameStopped = true;
 
+function startGame() {
+  startPopup.style.display = "none";
+  isGameStopped = false;
+  canvas.style.display = "block";
+}
+
+startBtn.addEventListener("click", startGame);
 function game() {
   checkGameOver();
 
-  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-  displayGameOver();
-  if (!isGameOver) {
-    enemyController.draw(ctx);
-    player.draw(ctx);
-    playerBulletController.draw(ctx);
-    enemyBulletController.draw(ctx);
+  if (!isGameStopped) {
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    displayGameOver();
+    if (!isGameOver) {
+      enemyController.draw(ctx);
+      player.draw(ctx);
+      playerBulletController.draw(ctx);
+      enemyBulletController.draw(ctx);
+    }
   }
 }
 
@@ -95,7 +108,8 @@ function checkGameOver() {
     isGameOver = true;
   }
 }
-setInterval(game, 1000 / 60); function restartGame() {
+setInterval(game, 1000 / 60);
+function restartGame() {
   didWin = false;
   isGameOver = false;
   enemyController.enemyReachedBottom = false;
@@ -130,5 +144,11 @@ window.addEventListener("keydown", (event) => {
 window.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     restartGame();
+  }
+});
+
+window.addEventListener("keydown", (event) => {
+  if (isGameStopped && (event.key === "Enter" || event.key === "NumpadEnter")) {
+    startGame();
   }
 });

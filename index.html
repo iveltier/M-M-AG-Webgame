@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="de">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>M&M-AG Webgame 🚀👽</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="#" />
-    <link rel="shortcut icon" href="images/icons/favicon.png" type="image/x-icon" />
-</head>
+    <link
+      rel="shortcut icon"
+      href="images/icons/favicon.png"
+      type="image/x-icon"
+    />
+  </head>
 
-<body>
-    <div class="controls">
-        <p><strong>Bewegen:</strong> <kbd>←</kbd> / <kbd>→</kbd> oder <kbd>A</kbd> / <kbd>D</kbd></p>
+  <body>
+    <div class="popup" id="startPopup">
+      <div class="controls">
+        <p>
+          <strong>Bewegen:</strong> <kbd>←</kbd> / <kbd>→</kbd> oder
+          <kbd>A</kbd> / <kbd>D</kbd>
+        </p>
         <p><strong>Schießen:</strong> <kbd>Leertaste</kbd></p>
+
+        <a href="https://iveltier.github.io/mmagwebgame" target="_blank"
+          >play the full version here</a
+        >
+        <button id="startBtn">Start</button>
+      </div>
     </div>
     <canvas id="game"></canvas>
     <button id="restartBtn">Neustart</button>
     <footer>
-        <h4 id="sign">
-            made by
-            <a href="https://github.com/iveltier" target="_blank"> iveltier 🍪</a>
-        </h4>
+      <h4 id="sign">
+        made by
+        <a href="https://github.com/iveltier" target="_blank"> iveltier 🍪</a>
+      </h4>
     </footer>
-    <img src="images/icons/podcast weihnachten logo.png" alt="mmag-logo" id="logo" />
+    <img
+      src="images/icons/podcast weihnachten logo.png"
+      alt="mmag-logo"
+      id="logo"
+    />
     <script src="index.js" type="module"></script>
-</body>
-
+  </body>
 </html>
